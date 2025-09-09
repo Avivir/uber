@@ -1,3 +1,8 @@
+import { buttonConfig } from "./buttonConfig";
+import { AiOutlineDown } from "react-icons/ai";
+import { ButtonConfig } from "./buttonConfig";
+import { ReactNode } from "react";
+
 enum ButtonVariant {
   Default = "default",
   Primary = "primary",
@@ -6,21 +11,39 @@ enum ButtonVariant {
   Link = "link",
 }
 
-export const menu = {
+interface ButtonProps {
+  text: string;
+  onClick: string;
+  style: string;
+  type: ButtonVariant;
+  haveSideMenu: boolean;
+  sideMenu?: ButtonProps;
+  buttonConfig: ButtonConfig;
+  icon?: ReactNode;
+  iconPosition?: "start" | "end";
+}
+
+export const menu: {
+  leftSideButtons: ButtonProps[];
+  rightSideButtons: ButtonProps[];
+} = {
   leftSideButtons: [
     {
       text: "Ride",
-      onclick: "",
+      onClick: "",
       style: "",
       type: ButtonVariant.Text,
       haveSideMenu: false,
-      sideMenu: "",
+      buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
       text: "Earn",
-      onclick: "",
+      onClick: "",
       style: "",
       type: ButtonVariant.Text,
+      icon: <AiOutlineDown>,
+      iconPosition: "end",
+      buttonConfig: buttonConfig.whiteTransparentButton,
       sideMenu: [
         {
           text: "Drive",
@@ -29,6 +52,7 @@ export const menu = {
           type: ButtonVariant.Text,
           haveSideMenu: false,
           sideMenu: "",
+          buttonConfig: buttonConfig.whiteTransparentButton,
         },
         {
           text: "Deliver",
@@ -37,6 +61,7 @@ export const menu = {
           type: ButtonVariant.Text,
           haveSideMenu: false,
           sideMenu: "",
+          buttonConfig: buttonConfig.whiteTransparentButton,
         },
       ],
     },
@@ -47,6 +72,7 @@ export const menu = {
       type: ButtonVariant.Text,
       haveSideMenu: false,
       sideMenu: "",
+      buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
       text: "Uber eats",
@@ -55,6 +81,7 @@ export const menu = {
       type: ButtonVariant.Text,
       haveSideMenu: false,
       sideMenu: "",
+      buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
       text: "About",
@@ -62,6 +89,7 @@ export const menu = {
       style: "",
       type: ButtonVariant.Text,
       haveSideMenu: true,
+      buttonConfig: buttonConfig.whiteTransparentButton,
       sideMenu: [
         {
           text: "About us",
@@ -69,6 +97,7 @@ export const menu = {
           style: "",
           type: ButtonVariant.Text,
           sideMenu: "",
+          buttonConfig: buttonConfig.whiteTransparentButton,
         },
         {
           text: "Our offering",
@@ -77,6 +106,7 @@ export const menu = {
           type: ButtonVariant.Text,
           haveSideMenu: false,
           sideMenu: "",
+          buttonConfig: buttonConfig.whiteTransparentButton,
         },
         {
           text: "How Uber Works",
@@ -85,6 +115,7 @@ export const menu = {
           type: ButtonVariant.Text,
           haveSideMenu: false,
           sideMenu: "",
+          buttonConfig: buttonConfig.whiteTransparentButton,
         },
         {
           text: "Sustainability",
@@ -93,6 +124,7 @@ export const menu = {
           type: ButtonVariant.Text,
           haveSideMenu: false,
           sideMenu: "",
+          buttonConfig: buttonConfig.whiteTransparentButton,
         },
         {
           text: "Explore",
@@ -100,6 +132,7 @@ export const menu = {
           style: "",
           type: ButtonVariant.Text,
           haveSideMenu: true,
+          buttonConfig: buttonConfig.whiteTransparentButton,
           sideMenu: [
             {
               text: "Cities",
@@ -107,6 +140,7 @@ export const menu = {
               style: "",
               type: ButtonVariant.Text,
               haveSideMenu: true,
+              buttonConfig: buttonConfig.whiteTransparentButton,
               sideMenu: [
                 {
                   text: "Getting around Warsaw",
@@ -114,6 +148,7 @@ export const menu = {
                   style: "",
                   type: ButtonVariant.Text,
                   haveSideMenu: false,
+                  buttonConfig: buttonConfig.whiteTransparentButton,
                   sideMenu: "",
                 },
                 {
@@ -122,6 +157,7 @@ export const menu = {
                   style: "",
                   type: ButtonVariant.Text,
                   haveSideMenu: false,
+                  buttonConfig: buttonConfig.whiteTransparentButton,
                   sideMenu: "",
                 },
                 {
@@ -130,6 +166,7 @@ export const menu = {
                   style: "",
                   type: ButtonVariant.Text,
                   haveSideMenu: false,
+                  buttonConfig: buttonConfig.whiteTransparentButton,
                   sideMenu: "",
                 },
                 {
@@ -138,6 +175,7 @@ export const menu = {
                   style: "",
                   type: ButtonVariant.Text,
                   haveSideMenu: false,
+                  buttonConfig: buttonConfig.whiteTransparentButton,
                   sideMenu: "",
                 },
                 {
@@ -146,6 +184,7 @@ export const menu = {
                   style: "",
                   type: ButtonVariant.Text,
                   haveSideMenu: false,
+                  buttonConfig: buttonConfig.whiteTransparentButton,
                   sideMenu: "",
                 },
                 {
@@ -154,6 +193,7 @@ export const menu = {
                   style: "",
                   type: ButtonVariant.Text,
                   haveSideMenu: false,
+                  buttonConfig: buttonConfig.whiteTransparentButton,
                   sideMenu: "",
                 },
               ],
@@ -166,6 +206,7 @@ export const menu = {
           style: "",
           type: ButtonVariant.Text,
           haveSideMenu: false,
+          buttonConfig: buttonConfig.whiteTransparentButton,
           sideMenu: "",
         },
         {
@@ -174,6 +215,7 @@ export const menu = {
           style: "",
           type: ButtonVariant.Text,
           haveSideMenu: false,
+          buttonConfig: buttonConfig.whiteTransparentButton,
           sideMenu: "",
         },
         {
@@ -182,6 +224,7 @@ export const menu = {
           style: "",
           type: ButtonVariant.Text,
           haveSideMenu: false,
+          buttonConfig: buttonConfig.whiteTransparentButton,
           sideMenu: "",
         },
         {
@@ -190,6 +233,7 @@ export const menu = {
           style: "",
           type: ButtonVariant.Text,
           haveSideMenu: false,
+          buttonConfig: buttonConfig.whiteTransparentButton,
           sideMenu: "",
         },
         {
@@ -198,6 +242,7 @@ export const menu = {
           style: "",
           type: ButtonVariant.Text,
           haveSideMenu: false,
+          buttonConfig: buttonConfig.whiteTransparentButton,
           sideMenu: "",
         },
       ],
@@ -210,6 +255,7 @@ export const menu = {
       style: "",
       type: ButtonVariant.Text,
       haveSideMenu: false,
+      buttonConfig: buttonConfig.whiteTransparentButton,
       sideMenu: "",
     },
     {
@@ -218,6 +264,7 @@ export const menu = {
       style: "",
       type: ButtonVariant.Text,
       haveSideMenu: false,
+      buttonConfig: buttonConfig.whiteTransparentButton,
       sideMenu: "",
     },
     {
@@ -226,6 +273,7 @@ export const menu = {
       style: "",
       type: ButtonVariant.Text,
       haveSideMenu: false,
+      buttonConfig: buttonConfig.whiteTransparentButton,
       sideMenu: "",
     },
     {
@@ -234,6 +282,7 @@ export const menu = {
       style: "",
       type: ButtonVariant.Primary,
       haveSideMenu: false,
+      buttonConfig: buttonConfig.whiteBgButton,
       sideMenu: "",
     },
   ],
