@@ -1,7 +1,5 @@
 import { buttonConfig } from "./buttonConfig";
-import { AiOutlineDown } from "react-icons/ai";
 import { ButtonConfig } from "./buttonConfig";
-import { ReactNode } from "react";
 
 enum ButtonVariant {
   Default = "default",
@@ -11,15 +9,23 @@ enum ButtonVariant {
   Link = "link",
 }
 
+interface SubMenu {
+  key: string;
+  label: string;
+  icon?: string;
+  children?: SubMenu[];
+}
+
 interface ButtonProps {
   text: string;
   onClick: string;
   style: string;
   type: ButtonVariant;
-  haveSideMenu: boolean;
-  sideMenu?: ButtonProps;
+  haveSubMenu: boolean;
+  subMenu?: SubMenu[];
   buttonConfig: ButtonConfig;
-  icon?: ReactNode;
+  icon?: string;
+  activeIcon?: string;
   iconPosition?: "start" | "end";
 }
 
@@ -33,7 +39,7 @@ export const menu: {
       onClick: "",
       style: "",
       type: ButtonVariant.Text,
-      haveSideMenu: false,
+      haveSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
@@ -41,28 +47,17 @@ export const menu: {
       onClick: "",
       style: "",
       type: ButtonVariant.Text,
-      icon: <AiOutlineDown>,
+      icon: "DownOutlined",
+      activeIcon: "UpOutlined",
       iconPosition: "end",
       buttonConfig: buttonConfig.whiteTransparentButton,
-      sideMenu: [
+      haveSubMenu: false,
+      subMenu: [
         {
-          text: "Drive",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          sideMenu: "",
-          buttonConfig: buttonConfig.whiteTransparentButton,
+          key: "1",
+          label: "Drive",
         },
-        {
-          text: "Deliver",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          sideMenu: "",
-          buttonConfig: buttonConfig.whiteTransparentButton,
-        },
+        { key: "2", label: "Deliver" },
       ],
     },
     {
@@ -70,8 +65,7 @@ export const menu: {
       onclick: "",
       style: "",
       type: ButtonVariant.Text,
-      haveSideMenu: false,
-      sideMenu: "",
+      haveSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
@@ -79,173 +73,19 @@ export const menu: {
       onclick: "",
       style: "",
       type: ButtonVariant.Text,
-      haveSideMenu: false,
-      sideMenu: "",
+      haveSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
       text: "About",
       onclick: "",
       style: "",
+      iconPosition: "end",
+      icon: "DownOutlined",
+      activeIcon: "UpOutlined",
       type: ButtonVariant.Text,
-      haveSideMenu: true,
+      haveSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
-      sideMenu: [
-        {
-          text: "About us",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          sideMenu: "",
-          buttonConfig: buttonConfig.whiteTransparentButton,
-        },
-        {
-          text: "Our offering",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          sideMenu: "",
-          buttonConfig: buttonConfig.whiteTransparentButton,
-        },
-        {
-          text: "How Uber Works",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          sideMenu: "",
-          buttonConfig: buttonConfig.whiteTransparentButton,
-        },
-        {
-          text: "Sustainability",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          sideMenu: "",
-          buttonConfig: buttonConfig.whiteTransparentButton,
-        },
-        {
-          text: "Explore",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: true,
-          buttonConfig: buttonConfig.whiteTransparentButton,
-          sideMenu: [
-            {
-              text: "Cities",
-              onclick: "",
-              style: "",
-              type: ButtonVariant.Text,
-              haveSideMenu: true,
-              buttonConfig: buttonConfig.whiteTransparentButton,
-              sideMenu: [
-                {
-                  text: "Getting around Warsaw",
-                  onclick: "",
-                  style: "",
-                  type: ButtonVariant.Text,
-                  haveSideMenu: false,
-                  buttonConfig: buttonConfig.whiteTransparentButton,
-                  sideMenu: "",
-                },
-                {
-                  text: "Getting around Kraków",
-                  onclick: "",
-                  style: "",
-                  type: ButtonVariant.Text,
-                  haveSideMenu: false,
-                  buttonConfig: buttonConfig.whiteTransparentButton,
-                  sideMenu: "",
-                },
-                {
-                  text: "Getting around Poznań",
-                  onclick: "",
-                  style: "",
-                  type: ButtonVariant.Text,
-                  haveSideMenu: false,
-                  buttonConfig: buttonConfig.whiteTransparentButton,
-                  sideMenu: "",
-                },
-                {
-                  text: "Getting around Wrocław",
-                  onclick: "",
-                  style: "",
-                  type: ButtonVariant.Text,
-                  haveSideMenu: false,
-                  buttonConfig: buttonConfig.whiteTransparentButton,
-                  sideMenu: "",
-                },
-                {
-                  text: "Getting around Gdańsk",
-                  onclick: "",
-                  style: "",
-                  type: ButtonVariant.Text,
-                  haveSideMenu: false,
-                  buttonConfig: buttonConfig.whiteTransparentButton,
-                  sideMenu: "",
-                },
-                {
-                  text: "Getting around Katowice",
-                  onclick: "",
-                  style: "",
-                  type: ButtonVariant.Text,
-                  haveSideMenu: false,
-                  buttonConfig: buttonConfig.whiteTransparentButton,
-                  sideMenu: "",
-                },
-              ],
-            },
-          ],
-        },
-        {
-          text: "Newsroom",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          buttonConfig: buttonConfig.whiteTransparentButton,
-          sideMenu: "",
-        },
-        {
-          text: "Investor relations",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          buttonConfig: buttonConfig.whiteTransparentButton,
-          sideMenu: "",
-        },
-        {
-          text: "Autonomus",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          buttonConfig: buttonConfig.whiteTransparentButton,
-          sideMenu: "",
-        },
-        {
-          text: "Blog",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          buttonConfig: buttonConfig.whiteTransparentButton,
-          sideMenu: "",
-        },
-        {
-          text: "Careers",
-          onclick: "",
-          style: "",
-          type: ButtonVariant.Text,
-          haveSideMenu: false,
-          buttonConfig: buttonConfig.whiteTransparentButton,
-          sideMenu: "",
-        },
-      ],
     },
   ],
   rightSideButtons: [
@@ -253,37 +93,35 @@ export const menu: {
       text: "EN",
       onclick: "",
       style: "",
+      icon: "GlobalOutlined",
+      iconPosition: "start",
       type: ButtonVariant.Text,
-      haveSideMenu: false,
+      haveSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
-      sideMenu: "",
     },
     {
       text: "Help",
       onclick: "",
       style: "",
       type: ButtonVariant.Text,
-      haveSideMenu: false,
+      haveSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
-      sideMenu: "",
     },
     {
       text: "Log in",
       onclick: "",
       style: "",
       type: ButtonVariant.Text,
-      haveSideMenu: false,
+      haveSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
-      sideMenu: "",
     },
     {
       text: "Sign up",
       onclick: "",
       style: "",
       type: ButtonVariant.Primary,
-      haveSideMenu: false,
+      haveSubMenu: false,
       buttonConfig: buttonConfig.whiteBgButton,
-      sideMenu: "",
     },
   ],
 };

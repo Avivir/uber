@@ -1,10 +1,14 @@
-import { ConfigProvider, Button } from "antd";
-import { ReactNode } from "react";
-import { buttonConfig, ButtonConfig } from "@/config/buttonConfig";
+"use client";
 
-interface IbuttonTypes {
+import { ConfigProvider, Button } from "antd";
+import { ButtonConfig } from "@/config/buttonConfig";
+import * as AntIcons from "@ant-design/icons";
+import { useState } from "react";
+
+interface ButtonTypes {
   text: string;
-  icon?: ReactNode;
+  icon?: string;
+  activeIcon?: string;
   iconPosition?: "start" | "end";
   onClick: string;
   buttonConfig: ButtonConfig;
@@ -16,13 +20,19 @@ interface IbuttonTypes {
 export const CustomButton = ({
   text,
   icon,
+  activeIcon,
   iconPosition,
-  onClick,
   type = "text",
-  haveSideMenu,
-  sideMenu,
   buttonConfig,
-}: IbuttonTypes) => {
+}: ButtonTypes) => {
+  const IconComponent = icon ? (AntIcons as any)[icon] : null;
+  const ActiveIconComponent = activeIcon ? (AntIcons as any)[activeIcon] : null;
+  const [active, setActive] = useState(false);
+
+  const handleOnclick = () => {
+    setActive(!active);
+  };
+
   return (
     <ConfigProvider
       theme={{
@@ -39,10 +49,15 @@ export const CustomButton = ({
       }}
     >
       <Button
-        iconPosition={iconPosition}
         shape={buttonConfig.shape}
         type={type}
-        icon={icon}
+        onClick={handleOnclick}
+        icon={
+          active
+            ? ActiveIconComponent && <ActiveIconComponent />
+            : IconComponent && <IconComponent />
+        }
+        iconPosition={iconPosition}
       >
         {text}
       </Button>

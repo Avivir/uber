@@ -12,8 +12,9 @@ export default function Navbar() {
             <CustomButton
               text={button.text}
               type={button.type}
-              haveSideMenu={button.haveSideMenu}
               buttonConfig={button.buttonConfig}
+              iconPosition={button.iconPosition}
+              activeIcon={button.activeIcon}
               icon={button.icon}
               key={idx}
             ></CustomButton>
@@ -25,8 +26,10 @@ export default function Navbar() {
             <CustomButton
               text={button.text}
               type={button.type}
-              haveSideMenu={button.haveSideMenu}
               buttonConfig={button.buttonConfig}
+              iconPosition={button.iconPosition}
+              icon={button.icon}
+              haveSideMenu={button.haveSideMenu}
               key={idx}
             ></CustomButton>
           ))}
