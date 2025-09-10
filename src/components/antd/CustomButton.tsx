@@ -10,17 +10,16 @@ interface ButtonTypes {
   icon?: string;
   activeIcon?: string;
   iconPosition?: "start" | "end";
-  onClick: string;
+  onClick?: () => void;
   buttonConfig: ButtonConfig;
   type: "text" | "link" | "default" | "primary" | "dashed";
-  haveSideMenu: boolean | undefined;
-  sideMenu: object[];
 }
 
 export const CustomButton = ({
   text,
   icon,
   activeIcon,
+  onClick,
   iconPosition,
   type = "text",
   buttonConfig,
@@ -31,6 +30,7 @@ export const CustomButton = ({
 
   const handleOnclick = () => {
     setActive(!active);
+    onClick();
   };
 
   return (
