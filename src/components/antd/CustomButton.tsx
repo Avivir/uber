@@ -3,34 +3,38 @@
 import { ConfigProvider, Button } from "antd";
 import { ButtonConfig } from "@/config/buttonConfig";
 import * as AntIcons from "@ant-design/icons";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-
 interface ButtonTypes {
+  idx: number;
   text: string;
   icon?: string;
   activeIcon?: string;
   iconPosition?: "start" | "end";
-  onClick?: () => void;
+  hasSubMenu: boolean;
+  subMenuIdxTrigger?: number;
   buttonConfig: ButtonConfig;
   type: "text" | "link" | "default" | "primary" | "dashed";
 }
 
 export const CustomButton = ({
+  idx,
   text,
   icon,
   activeIcon,
-  onClick,
   iconPosition,
   type = "text",
+  hasSubMenu,
   buttonConfig,
+  subMenuIdxTrigger,
 }: ButtonTypes) => {
+  const [buttonClicked, setButtonClicked] = useState(false);
   const IconComponent = icon ? (AntIcons as any)[icon] : null;
   const ActiveIconComponent = activeIcon ? (AntIcons as any)[activeIcon] : null;
-  const [active, setActive] = useState(false);
+  const router = useRouter();
 
-  const handleOnclick = () => {
-    setActive(!active);
-    onClick();
+  const handleMenuChange = () => {
+    setButtonClicked(!buttonClicked);
   };
 
   return (
@@ -50,10 +54,10 @@ export const CustomButton = ({
     >
       <Button
         shape={buttonConfig.shape}
+        onClick={!hasSubMenu ? () => router.push(text) : handleMenuChange}
         type={type}
-        onClick={handleOnclick}
         icon={
-          active
+          idx == subMenuIdxTrigger && buttonClicked
             ? ActiveIconComponent && <ActiveIconComponent />
             : IconComponent && <IconComponent />
         }
