@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 interface ButtonTypes {
   idx: number;
-  text: string;
+  text?: string;
   icon?: string;
   activeIcon?: string;
   iconPosition?: "start" | "end";
