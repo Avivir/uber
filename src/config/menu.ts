@@ -1,5 +1,6 @@
 import { buttonConfig } from "./buttonConfig";
 import { ButtonConfig } from "./buttonConfig";
+import { languageChoice, menuTitles } from "./languageChoice";
 
 enum ButtonVariant {
   Default = "default",
@@ -33,7 +34,7 @@ export const menu: {
 } = {
   leftSideButtons: [
     {
-      text: "Ride",
+      text: menuTitles.rideButton[languageChoice],
       type: ButtonVariant.Text,
       hasSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,

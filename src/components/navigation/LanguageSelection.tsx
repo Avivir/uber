@@ -17,16 +17,9 @@ export default function LanguageSelection() {
           <h2>Select your prefered language</h2>
         </div>
         <div className="mt-12 flex justify-start">
-          <Button className="w-xs text-left" type="text">
-            <div className="flex items-center text-left px-4">English</div>
-          </Button>
-
-          <Button className="w-xs text-left" type="text">
-            <p className="w-full text-left">English</p>
-          </Button>
-          <Button className="w-xs text-left" type="text">
-            <p className="w-full text-left">English</p>
-          </Button>
+          <p className="hover:bg-[#d1d1cc73] p-6 w-3xs rounded-xl">English</p>
+          <p className="hover:bg-[#d1d1cc73] p-6 w-3xs rounded-xl">English</p>
+          <p className="hover:bg-[#d1d1cc73] p-6 w-3xs rounded-xl">English</p>
         </div>
       </div>
     </div>

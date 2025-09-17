@@ -12,7 +12,6 @@ export default function Navbar() {
 
   const handleMenuChange = (idx: number) => {
     setIsSubMenuOpen(idx);
-    console.log(idx);
   };
 
   return (
