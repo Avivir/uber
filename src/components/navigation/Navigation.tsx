@@ -1,14 +1,17 @@
 "use client";
 
-import { SiUber } from "react-icons/si";
-import { CustomButton } from "../antd/CustomButton";
 import { menu } from "@/config/menu";
 import { Dropdown } from "antd";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { SiUber } from "react-icons/si";
+import { CustomButton } from "../antd/CustomButton";
 import LanguageSelection from "./LanguageSelection";
 
 export default function Navbar() {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(0);
+
+  const { t } = useTranslation();
 
   const handleMenuChange = (idx: number) => {
     setIsSubMenuOpen(idx);
@@ -29,9 +32,10 @@ export default function Navbar() {
                   onOpenChange={() => handleMenuChange(idx)}
                 >
                   <div>
+                    {console.log("text:" + button.text)}
                     <CustomButton
                       idx={idx}
-                      text={button.text}
+                      text={t(button.text)}
                       type={button.type}
                       hasSubMenu={button.hasSubMenu}
                       buttonConfig={button.buttonConfig}

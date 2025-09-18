@@ -1,6 +1,4 @@
-import { buttonConfig } from "./buttonConfig";
-import { ButtonConfig } from "./buttonConfig";
-import { languageChoice, menuTitles } from "./languageChoice";
+import { buttonConfig, ButtonConfig } from "./buttonConfig";
 
 enum ButtonVariant {
   Default = "default",
@@ -34,13 +32,13 @@ export const menu: {
 } = {
   leftSideButtons: [
     {
-      text: menuTitles.rideButton[languageChoice],
+      text: "rideButtonText",
       type: ButtonVariant.Text,
       hasSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
-      text: "Earn",
+      text: "earnButtonText",
       type: ButtonVariant.Text,
       icon: "DownOutlined",
       activeIcon: "UpOutlined",
@@ -56,19 +54,19 @@ export const menu: {
       ],
     },
     {
-      text: "Business",
+      text: "businessButtonText",
       type: ButtonVariant.Text,
       hasSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
-      text: "Uber eats",
+      text: "uberEatsButtonText",
       type: ButtonVariant.Text,
       hasSubMenu: false,
       buttonConfig: buttonConfig.whiteTransparentButton,
     },
     {
-      text: "About",
+      text: "aboutButtonText",
       iconPosition: "end",
       icon: "DownOutlined",
       activeIcon: "UpOutlined",
