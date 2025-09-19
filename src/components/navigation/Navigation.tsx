@@ -11,7 +11,7 @@ import LanguageSelection from "./LanguageSelection";
 export default function Navbar() {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(0);
 
-  const { t } = useTranslation();
+  const { t } = useTranslation("common");
 
   const handleMenuChange = (idx: number) => {
     setIsSubMenuOpen(idx);
@@ -32,7 +32,6 @@ export default function Navbar() {
                   onOpenChange={() => handleMenuChange(idx)}
                 >
                   <div>
-                    {console.log("text:" + button.text)}
                     <CustomButton
                       idx={idx}
                       text={t(button.text)}
@@ -50,7 +49,7 @@ export default function Navbar() {
                 <CustomButton
                   key={idx}
                   idx={idx}
-                  text={button.text}
+                  text={t(button.text)}
                   type={button.type}
                   hasSubMenu={button.hasSubMenu}
                   buttonConfig={button.buttonConfig}
@@ -65,7 +64,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             {menu.rightSideButtons.map((button, idx) => (
               <CustomButton
-                text={button.text}
+                text={t(button.text)}
                 type={button.type}
                 buttonConfig={button.buttonConfig}
                 hasSubMenu={button.hasSubMenu}
